@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {combineReducers,createStore} from 'redux';
+import {Provider} from 'react-redux';
+
+
+const reducers = combineReducers({
+  field: () => ({value: 'Opa'})
+})
+
 // ex 01
 // import {Primeiro,Segundo} from './component'
 /*
@@ -30,8 +38,11 @@ import ClassComponent from './ex04Class.jsx';
 */
 
 import Field from './ex05Field';
+
 ReactDOM.render(
-  <Field initialValue="Test"/>,
-document.getElementById('app'));
+  <Provider store={createStore(reducers)}>
+    <Field initialValue="Test"/>
+  </Provider>,
+  document.getElementById('app'));
 
 
