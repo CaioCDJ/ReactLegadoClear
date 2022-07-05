@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {combineReducers,createStore} from 'redux';
 import {Provider} from 'react-redux';
-import fieldReducer from './fieldReducer';
+import counterReducer from './counterReducer';
+import Counter from './counter'
+
+//import fieldReducer from './fieldReducer';
 
 
 // ex 01
@@ -34,15 +37,19 @@ import ClassComponent from './ex04Class.jsx';
       initialValue={10} />
 */
 
-import Field from './ex05Field';
-
+// import Field from './ex05Field';
+/*
 const reducers = combineReducers({
   field: fieldReducer
+})
+*/
+const reducers = combineReducers({
+  counter: counterReducer
 })
 
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
-    <Field initialValue="Test"/>
+    <Counter/>
   </Provider>,
   document.getElementById('app'));
 
